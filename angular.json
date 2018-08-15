@@ -3,7 +3,7 @@
   "version": 3,
   "newProjectRoot": "projects",
   "projects": {
-    "abracadabra": {
+    "edlab": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -55,18 +55,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "abracadabra:build"
+            "browserTarget": "edlab:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "abracadabra:build:production"
+              "browserTarget": "edlab:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "abracadabra:build"
+            "browserTarget": "edlab:build"
           }
         },
         "test": {
@@ -105,7 +105,7 @@
         }
       }
     },
-    "abracadabra-e2e": {
+    "edlab-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -113,11 +113,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "abracadabra:serve"
+            "devServerTarget": "edlab:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "abracadabra:serve:production"
+              "devServerTarget": "edlab:serve:production"
             }
           }
         },
