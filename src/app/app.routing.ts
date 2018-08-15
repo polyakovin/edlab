@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from "@angular/router";
-import { MainComponent } from "./main/main.component";
+import { LandingComponent } from "./landing/landing.component";
+import { PupilComponent } from "./pupil/pupil.component";
+import { TeacherComponent } from "./teacher/teacher.component";
 
 const APP_ROUTES: Routes = [
-  { path: '', component: MainComponent },
+  { path: '', component: LandingComponent },
+  { path: 'pupil', component: PupilComponent },
+  { path: 'teacher', component: TeacherComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
 

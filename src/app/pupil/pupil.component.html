@@ -1,0 +1,38 @@
+<header class="navbar navbar-dark">
+  <div class="container">
+    <span class="navbar-brand"></span>
+    <span class="navbar-text">
+      <ul class="nav">
+        <li class="nav-item"><a href="#" class="nav-link">Войти</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Регистрация</a></li>
+      </ul>
+    </span>
+  </div>
+</header>
+<div class="main-banner">
+  <div class="container text-right">
+    <img src="/assets/images/main.png" alt="main" class="float-left">
+    <h1>EdLAB — курсы<br>по подготовке к ОГЭ и ЕГЭ</h1>
+    <p>EdLAB — это курсы дополнительного образования, которые помогут успешно подготовиться к сдаче ОГЭ или ЕГЭ по Математике, Физике и Русскому языку</p>
+    <button class="btn btn-primary">Хочу на курсы!</button>
+  </div>
+</div>
+<div class="container-fluid">
+
+
+  <div class="container content">
+    <div class="row">
+      <div class="col-md-3 col-sm-6" *ngFor="let feature of features">
+        <img [src]="'/assets/images/' + feature.img + '.png'" [alt]="feature.title">
+        <h2>{{ feature.title }}</h2>
+        <p>{{ feature.text }}</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      &copy; 2018 EdLAB
+    </div>
+  </footer>
+</div>

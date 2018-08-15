@@ -8,16 +8,20 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 
-import { MainComponent } from './main/main.component';
+import { LandingComponent } from './landing/landing.component';
 import { AppComponent } from './app.component';
 import { HttpService } from './http.service';
+import { PupilComponent } from './pupil/pupil.component';
+import { TeacherComponent } from './teacher/teacher.component';
 
 mergeAllIconsToOneObject();
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
+    LandingComponent,
+    PupilComponent,
+    TeacherComponent
   ],
   imports: [
     BrowserModule,
