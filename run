@@ -1,0 +1,78 @@
+#!/bin/bash
+function process_script_request {
+  if [[ $# -eq 0 ]]; then
+    show_help
+  else
+    case $1 in
+      help) show_help;;
+      back) serve_backend;;
+      back:prod) serve_backend_production;;
+      front) update_and_watch_assets;;
+      front:prod) build_assets_for_deployment;;
+      logs) show_logs;;
+      deploy) deploy_app;;
+      redeploy) redeploy_app;;
+      deploy:test) deploy_test_app;;
+      gen:local) generate_local_conf;;
+    esac
+  fi
+}
+
+function show_help {
+  echo "What to do?"
+  echo "help  back  front   logs  deploy  deploy:test"
+}
+
+function serve_backend {
+  sails lift
+}
+
+function serve_backend_production {
+  NODE_ENV=production node app.js
+}
+
+function update_and_watch_assets {
+  cd angular
+  ng build --watch --extract-css
+  cd ../
+}
+
+function show_logs {
+  heroku logs --tail --app online-tutoring
+}
+
+function build_assets_for_deployment {
+  cd angular
+  ng build --prod --extract-css --output-path ../assets
+  cd ../
+  git add assets
+  git commit -m "updating assets for deployment"
+}
+
+function deploy_app {
+  build_assets_for_deployment
+  git co production
+  git merge master
+  git push
+  git co master
+}
+
+function deploy_test_app {
+  git push -f heroku-test master
+}
+
+function generate_local_conf {
+  localjs="config/local.js"
+
+  echo "module.exports = {"  > $localjs
+  echo "  paths: {"  >> $localjs
+  echo "    public: 'angular/dist'"  >> $localjs
+  echo "  }"  >> $localjs
+  echo "};"  >> $localjs
+}
+
+function redeploy_app {
+  heroku restart --app online-tutoring
+}
+
+process_script_request $1
