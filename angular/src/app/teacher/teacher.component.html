@@ -1,3 +1,38 @@
-<p>
-  teacher works!
-</p>
+<header class="navbar navbar-dark">
+  <div class="container">
+    <span class="navbar-brand"></span>
+    <span class="navbar-text">
+      <ul class="nav">
+        <li class="nav-item"><a href="#" class="nav-link">Войти</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Регистрация</a></li>
+      </ul>
+    </span>
+  </div>
+</header>
+
+<div class="main-banner">
+  <div class="container text-right">
+    <img src="/assets/images/teacher-main.png" alt="main" class="float-left">
+    <h1>Учи и учись вместе с нами</h1>
+    <p>Мы предоставляем возможность работы по методикам, которые разработаны ведущими представителями МФТИ, ВШЭ, МГУ, МГТУ. Помимо этого, доступ к банку знаний</p>
+    <button class="btn btn-primary">Стать учителем edlabs</button>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="container content">
+    <div class="row">
+      <div class="col-md-3 col-sm-6" *ngFor="let feature of features">
+        <img [src]="'/assets/images/' + feature.img + '.png'" [alt]="feature.title">
+        <h2>{{ feature.title }}</h2>
+        <p>{{ feature.text }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    &copy; 2018 EdLABs
+  </div>
+</footer>
