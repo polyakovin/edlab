@@ -93,3 +93,21 @@ footer {
     font-size: 10pt;
   }
 }
+
+
+@media (max-width: 767px) {
+  .content {
+    .container {
+      padding-top: 50px;
+      padding-bottom: 50px;
+
+      h1 {
+        font-size: 36pt;
+      }
+
+      p {
+        font-size: 20pt;
+      }
+    }
+  }
+} // xs
