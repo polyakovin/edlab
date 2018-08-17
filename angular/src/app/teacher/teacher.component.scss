@@ -16,6 +16,7 @@ $blue: #2d00c7;
 
 .container-fluid {
   padding: 0;
+  padding-bottom: 40px;
 }
 
 .navbar {
@@ -33,6 +34,7 @@ $blue: #2d00c7;
 .main-banner {
   background: #4727eb url('../../assets/images/teacher-back.png');
   background-position: center;
+  background-size: cover;
   box-shadow: inset 0 0 6px hsl(0, 0%, 35%);
 
   .container {

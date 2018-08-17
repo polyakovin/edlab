@@ -18,6 +18,16 @@ export class LandingComponent implements OnInit {
   ngOnInit() {
     // this.getFeatures();
     // this.getTestMarkdownPage();
+
+    $(document).ready(() => {
+      const content = $('.content');
+      $(window).resize(() => {
+        const maxHeight = $(window).height() - 40 - 62;
+        if (content.height() < maxHeight) {
+          content.height(maxHeight);
+        }
+      });
+    });
   }
 
   goToLanding() {

@@ -16,6 +16,7 @@ $violet: #700f78;
 
 .container-fluid {
   padding: 0;
+  padding-bottom: 40px;
 }
 
 .navbar {
@@ -33,6 +34,7 @@ $violet: #700f78;
 .main-banner {
   background: #8f59ea url('../../assets/images/main-back.jpg');
   background-position: center;
+  background-size: cover;
   box-shadow: inset 0 0 6px hsl(0, 0%, 35%);
 
   .container {

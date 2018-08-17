@@ -2,6 +2,13 @@
 @import "mixins";
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+
 body {
   font-family: $font-primary;
   background: $color-bg;
