@@ -59,7 +59,7 @@ $violet: #700f78;
     .btn {
       background: $violet;
       font-size: 16pt;
-      width: 200px;
+      min-width: 260px;
       height: 43px;
       @include border-radius(12px);
       box-shadow: 0 0 6px hsl(0, 0%, 35%);
