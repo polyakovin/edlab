@@ -1,5 +1,11 @@
 @import "../../styles/mixins";
 
+@mixin initial-state-text {
+  opacity: 0;
+  position: relative;
+  top: -10px;
+}
+
 $blue: #004fc6;
 
 .container-fluid {
@@ -42,6 +48,7 @@ $blue: #004fc6;
       font-weight: 900;
       font-size: 48pt;
       color: #fff;
+      @include initial-state-text();
     }
 
     p {
@@ -49,7 +56,7 @@ $blue: #004fc6;
       font-size: 22pt;
       color: #fff;
       margin: 0;
-      // margin-bottom: 30px;
+      @include initial-state-text();
     }
 
     .btns {

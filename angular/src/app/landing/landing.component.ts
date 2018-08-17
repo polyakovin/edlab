@@ -20,6 +20,16 @@ export class LandingComponent implements OnInit {
     // this.getTestMarkdownPage();
 
     $(document).ready(() => {
+      const container = $('.content > .container');
+      const h1 = container.find('h1');
+      const p = container.find('p');
+      const finalState = {opacity: 1, top: 0};
+      const animationDuration = 600;
+
+      h1.animate(finalState, animationDuration, () => {
+        p.animate(finalState, animationDuration);
+      });
+
       const content = $('.content');
       $(window).resize(() => {
         const maxHeight = $(window).height() - 40 - 62;

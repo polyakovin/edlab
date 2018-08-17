@@ -50,19 +50,27 @@ export class PupilComponent implements OnInit {
         });
       });
 
-      const features = $('.content > .row > div');
-      let isAnimated = false;
-      $(document).scroll(() => {
+      function animateFeatures(now) {
         if (!isAnimated) {
           isAnimated = true;
           features.each((i, feature) => {
             console.log(feature);
             setTimeout(() => {
               $(feature).animate(finalStateFeature, animationDuration);
-            }, i*animationDuration);
+            }, ((now ? 3 : 0) + i)*animationDuration);
           });
         }
-      });
+      }
+
+      const features = $('.content > .row > div');
+      let isAnimated = false;
+      if ($('.main-banner').height() < .7*$(window).height()) {
+        animateFeatures(true);
+      } else {
+        $(document).scroll(() => {
+          animateFeatures(false)
+        });
+      }
     });
   }
 
