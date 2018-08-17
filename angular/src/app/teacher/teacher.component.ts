@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-teacher',
@@ -29,7 +30,9 @@ export class TeacherComponent implements OnInit {
     }
   ]
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
     $(document).ready(() => {
@@ -63,4 +66,7 @@ export class TeacherComponent implements OnInit {
     });
   }
 
+  goToLanding() {
+    this.router.navigate(['/']);
+  }
 }

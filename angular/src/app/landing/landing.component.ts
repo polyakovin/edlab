@@ -12,13 +12,16 @@ export class LandingComponent implements OnInit {
   renderedMarkdown = '';
 
   constructor(
-    private http: HttpService,
     private router: Router
   ) { }
 
   ngOnInit() {
     // this.getFeatures();
     // this.getTestMarkdownPage();
+  }
+
+  goToLanding() {
+    this.router.navigate(['/']);
   }
 
   goToPupil() {
