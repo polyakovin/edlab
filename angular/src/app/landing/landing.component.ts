@@ -28,4 +28,9 @@ export class LandingComponent implements OnInit {
   goToTeacher() {
     this.router.navigate(['teacher']);
   }
+
+  goToSchool() {
+    alert('Страница для школы.');
+    // this.router.navigate(['teacher']);
+  }
 }

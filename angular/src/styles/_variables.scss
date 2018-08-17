@@ -1,5 +1,5 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700|Noto+Serif:400,400i,700&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,800&subset=cyrillic');
 
 // Palette
 $palette1: #dfe7e4;
@@ -10,8 +10,8 @@ $black:    #000;
 $white:    #fff;
 
 // Basic variables
-$font-primary:   'Noto Sans', sans-serif;
-$font-secondary: 'Noto Sans', sans-serif;
+$font-primary:   'Montserrat', sans-serif;
+$font-secondary: 'Montserrat', sans-serif;
 $color-primary:   $black; // Основной текст
 $color-secondary: $black; // Вспомогательный текст (например, заголовки)
 $color-bg:        $white; // Цвет фона

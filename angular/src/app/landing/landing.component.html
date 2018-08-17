@@ -1,2 +1,40 @@
-<button class="btn btn-primary" (click)="goToPupil()">Ученик</button>
-<button class="btn btn-primary" (click)="goToTeacher()">Учитель</button>
+<header class="navbar navbar-dark">
+  <div class="container">
+    <span class="navbar-brand"></span>
+    <span class="navbar-text">
+      <ul class="nav">
+        <li class="nav-item"><a href="#" class="nav-link">Войти</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Регистрация</a></li>
+      </ul>
+    </span>
+  </div>
+</header>
+
+<div class="content">
+  <div class="container text-center">
+    <h1>Объясняем, а не натаскиваем</h1>
+    <p>Профессионально. Технологично. Индивидуально</p>
+
+    <div class="row">
+      <div class="col">
+        <img src="assets/images/title1.png" alt="title1">
+      </div>
+      <div class="col">
+        <div class="btns">
+          <button class="btn btn-primary" (click)="goToPupil()">EdLABs ученику</button>
+          <button class="btn btn-primary" (click)="goToTeacher()">EdLABs учителю</button>
+          <button class="btn btn-primary" (click)="goToSchool()">EdLABs школе</button>
+        </div>
+      </div>
+      <div class="col">
+        <img class="right-pic" src="assets/images/title2.png" alt="title2">
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    &copy; 2018 EdLABs
+  </div>
+</footer>
