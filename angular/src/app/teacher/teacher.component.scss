@@ -1,5 +1,17 @@
 @import "../../styles/mixins";
 
+@mixin initial-state-banner {
+  opacity: 0;
+  position: relative;
+  right: -10px;
+}
+
+@mixin initial-state-feature {
+  opacity: 0;
+  position: relative;
+  top: -10px;
+}
+
 $blue: #2d00c7;
 
 .container-fluid {
@@ -32,12 +44,14 @@ $blue: #2d00c7;
       font-weight: 900;
       font-size: 37pt;
       color: #fff;
+      @include initial-state-banner();
     }
 
     p {
       font-size: 18pt;
       color: #fff;
       margin: 30px 0;
+      @include initial-state-banner();
     }
 
     .btn {
@@ -47,23 +61,28 @@ $blue: #2d00c7;
       height: 43px;
       @include border-radius(12px);
       box-shadow: 0 0 6px hsl(0, 0%, 35%);
+      @include initial-state-banner();
     }
   }
 }
 
 .content {
-  img {
-    margin: 20px auto;
-    display: block;
-  }
+  & > .row > div {
+    @include initial-state-feature();
 
-  h2 {
-    font-size: 16pt;
-    font-weight: 700;
-  }
+    img {
+      margin: 20px auto;
+      display: block;
+    }
 
-  p {
-    font-size: 14pt;
+    h2 {
+      font-size: 16pt;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 14pt;
+    }
   }
 }
 

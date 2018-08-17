@@ -32,6 +32,35 @@ export class TeacherComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    $(document).ready(() => {
+      const container = $('.main-banner > .container');
+      const h1 = container.find('h1');
+      const p = container.find('p');
+      const btn = container.find('.btn');
+      const finalState = {opacity: 1, right: 0};
+      const finalStateFeature = {opacity: 1, top: 0};
+      const animationDuration = 600;
+
+      h1.animate(finalState, animationDuration, () => {
+        p.animate(finalState, animationDuration, () => {
+          btn.animate(finalState, animationDuration);
+        });
+      });
+
+      const features = $('.content > .row > div');
+      let isAnimated = false;
+      $(document).scroll(() => {
+        if (!isAnimated) {
+          isAnimated = true;
+          features.each((i, feature) => {
+            console.log(feature);
+            setTimeout(() => {
+              $(feature).animate(finalStateFeature, animationDuration);
+            }, i*animationDuration);
+          });
+        }
+      });
+    });
   }
 
 }
