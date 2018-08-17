@@ -78,6 +78,12 @@ footer {
   }
 }
 
+.modal-footer {
+  button {
+    margin: auto;
+  }
+}
+
 
 @media (max-width: 767px) {
   .main-banner {
