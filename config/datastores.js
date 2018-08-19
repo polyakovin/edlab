@@ -15,7 +15,6 @@
 
 module.exports.datastores = {
 
-
   /***************************************************************************
   *                                                                          *
   * Your app's default datastore.                                            *
@@ -33,6 +32,10 @@ module.exports.datastores = {
   ***************************************************************************/
 
   default: {
+    adapter: require('sails-mysql'),
+    url: `mysql://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_SERVER}:3306/${process.env.DB}`,
+    pool: true,
+    connectionLimit: 4000
 
     /***************************************************************************
     *                                                                          *

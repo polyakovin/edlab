@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRouterModule } from "./app.routing";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -10,9 +10,13 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 
 import { LandingComponent } from './landing/landing.component';
 import { AppComponent } from './app.component';
+import { LoaderBigComponent } from './loaders/loader-big/loader-big.component';
+import { LoaderInbtnComponent } from './loaders/loader-inbtn/loader-inbtn.component';
+import { CommonService } from './common.service';
 import { HttpService } from './http.service';
 import { PupilComponent } from './pupil/pupil.component';
 import { TeacherComponent } from './teacher/teacher.component';
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
 
 mergeAllIconsToOneObject();
 
@@ -21,16 +25,20 @@ mergeAllIconsToOneObject();
     AppComponent,
     LandingComponent,
     PupilComponent,
-    TeacherComponent
+    TeacherComponent,
+    SignUpComponent,
+    LoaderBigComponent,
+    LoaderInbtnComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     AppRouterModule,
     FontAwesomeModule
   ],
-  providers: [ HttpService ],
+  providers: [ HttpService, CommonService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

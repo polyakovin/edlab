@@ -10,13 +10,15 @@ export class HttpService {
 
   // получение данных
   get(url) {
-    return this.http.get(url)
+    return this.http
+      .get(url)
       .map((response: Response) => response.json());
   }
 
   // получение данных
   getMarkdown(url) {
-    return this.http.get(url)
+    return this.http
+      .get(url)
       .map((response: Response) => markdown.toHTML(response.text()));
   }
 
@@ -27,8 +29,8 @@ export class HttpService {
     headers.append('Content-Type', 'application/json');
 
     // отправка информации в файл на сервере
-    return this.http.post(url, body, {
-      headers: headers
-    });
+    return this.http
+      .post(url, body, {headers: headers})
+      .map((response: Response) => response.json());
   }
 }

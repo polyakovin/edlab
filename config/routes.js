@@ -9,7 +9,17 @@
  */
 
 module.exports.routes = {
-
+  //Auth
+	// 'get /login': {
+	// 	view: 'user/login'
+	// },
+	// 'get /register': {
+	// 	view: 'user/register'
+	// },
+	'post /login': 'AuthController.login',
+	'post /register': 'AuthController.register',
+  '/logout': 'AuthController.logout',
+  'get /getUsers': 'AuthController.getUsers'
 
   //  ╦ ╦╔═╗╔╗ ╔═╗╔═╗╔═╗╔═╗╔═╗
   //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗

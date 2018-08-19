@@ -1,0 +1,41 @@
+<router-outlet></router-outlet>
+
+<!-- Окно для уведомлений -->
+<div class="modal fade" id="commonAlert" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <div class="message"></div>
+        <button type="button" class="btn btn-block btn-primary" data-dismiss="modal">
+          OK. Thank you!
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Окно для подтверждений -->
+<div class="modal fade" id="commonConfirm" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <div class="question"></div>
+        <div class="row">
+          <div class="col col-xs-6">
+            <button type="button" class="btn btn-block btn-default" data-dismiss="modal" (click)="common.confirmModal(false)">
+              No
+            </button>
+          </div>
+          <div class="col col-xs-6">
+            <button type="button" class="btn btn-block btn-primary" data-dismiss="modal"
+             (click)="common.confirmModal(true)">
+              Yes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

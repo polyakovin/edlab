@@ -1,0 +1,63 @@
+<form [formGroup]="form" (ngSubmit)="signUp($event)">
+  <div class="form-group">
+    <label>Фамилия</label>
+    <input type="text" class="form-control" formControlName="familyName">
+    <span class="small text-danger input-tip">
+      Введите свою фамилию. От 2 до 20 символов.
+    </span>
+  </div>
+
+  <div class="form-group">
+    <label>Имя</label>
+    <input type="text" class="form-control" formControlName="firstName">
+    <span class="small text-danger input-tip">
+      Введите своё имя. От 2 до 20 символов.
+    </span>
+  </div>
+
+  <div class="form-group">
+    <label>Отчество</label>
+    <input type="text" class="form-control" formControlName="patroName">
+    <span class="small text-danger input-tip">
+      Введите своё отчество. От 2 до 20 символов.
+    </span>
+  </div>
+
+  <div class="form-group">
+    <label>E-mail</label>
+    <input type="email" class="form-control" formControlName="email" placeholder="name@example.com">
+    <span class="small text-danger input-tip">
+      E-mail введён некорректно.
+    </span>
+  </div>
+
+  <div class="form-group">
+    <label>Моб. телефон</label>
+    <input type="text" class="form-control" formControlName="phone">
+    <span class="small text-danger input-tip">
+      Укажите мобильный телефон.
+    </span>
+  </div>
+
+  <div class="form-group">
+    <label>Школа</label>
+    <input type="text" class="form-control" formControlName="school">
+    <span class="small text-danger input-tip">
+      Укажите свою школу.
+    </span>
+  </div>
+
+  <div class="form-group">
+    <label>Класс</label>
+    <input type="text" class="form-control" formControlName="form">
+    <span class="small text-danger input-tip">
+      Укажите свой класс.
+    </span>
+  </div>
+
+  <button type="submit" class="btn btn-success btn-block" [ngClass]="{disabled: loading || !form.valid}
+  ">
+    Зарегистрироваться
+    <na-loader-inbtn *ngIf="loading"></na-loader-inbtn>
+  </button>
+</form>

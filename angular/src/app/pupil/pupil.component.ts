@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-pupil',
@@ -31,6 +32,7 @@ export class PupilComponent implements OnInit {
   ]
 
   constructor(
+    private http: HttpService,
     private router: Router
   ) { }
 
@@ -54,7 +56,6 @@ export class PupilComponent implements OnInit {
         if (!isAnimated) {
           isAnimated = true;
           features.each((i, feature) => {
-            console.log(feature);
             setTimeout(() => {
               $(feature).animate(finalStateFeature, animationDuration);
             }, ((now ? 3 : 0) + i)*animationDuration);
