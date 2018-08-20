@@ -38,7 +38,7 @@ function update_and_watch_assets {
 }
 
 function show_logs {
-  heroku logs --tail --app online-tutoring
+  heroku logs --tail --app edlabs
 }
 
 function build_assets_for_deployment {
