@@ -17,7 +17,8 @@ module.exports.routes = {
 	// 	view: 'user/register'
 	// },
 	// 'post /login': 'AuthController.login',
-	'post /register': 'auth.register',
+	'post /register/pupil': 'auth.register-pupil',
+	'post /register/teacher': 'auth.register-teacher',
   // '/logout': 'AuthController.logout',
   'get /getUsers': 'user.all'
 

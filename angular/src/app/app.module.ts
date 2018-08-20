@@ -16,7 +16,8 @@ import { CommonService } from './common.service';
 import { HttpService } from './http.service';
 import { PupilComponent } from './pupil/pupil.component';
 import { TeacherComponent } from './teacher/teacher.component';
-import { SignUpComponent } from './auth/sign-up/sign-up.component';
+import { SignUpPupilComponent } from './auth/sign-up-pupil/sign-up-pupil.component';
+import { SignUpTeacherComponent } from './auth/sign-up-teacher/sign-up-teacher.component';
 
 mergeAllIconsToOneObject();
 
@@ -26,7 +27,8 @@ mergeAllIconsToOneObject();
     LandingComponent,
     PupilComponent,
     TeacherComponent,
-    SignUpComponent,
+    SignUpPupilComponent,
+    SignUpTeacherComponent,
     LoaderBigComponent,
     LoaderInbtnComponent
   ],

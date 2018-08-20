@@ -7,10 +7,10 @@
 
 module.exports = {
   attributes: {
-    id_user: {
-      model: 'User',
-      required: true
-    },
+    // id_user: {
+    //   model: 'User',
+    //   required: true
+    // },
 
     token: {
       type: 'string', // в зашифрованном (SHA1) виде

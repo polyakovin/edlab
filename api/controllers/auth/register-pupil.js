@@ -42,10 +42,10 @@ module.exports = {
   },
 
   fn: async (user, exits) => {
-    const foundUser = await User.findOne({email: user.email});
+    const foundUser = await Pupil.findOne({email: user.email});
 
     if (!foundUser) {
-      const createdUser = await User.create(user).fetch();
+      const createdUser = await Pupil.create(user).fetch();
 
       const emailToken = CryptoService.generateTokenFromJSON(user);
       user.emailToken = emailToken;

@@ -4,8 +4,8 @@ import { CommonService } from '../../common.service';
 import { HttpService } from '../../http.service';
 
 @Component({
-  selector: 'na-sign-up',
-  templateUrl: './sign-up.component.html',
+  selector: 'na-sign-up-pupil',
+  templateUrl: './sign-up-pupil.component.html',
   styles: [`
     .form-group {
       margin-bottom: 10px;
@@ -16,7 +16,7 @@ import { HttpService } from '../../http.service';
     }
   `]
 })
-export class SignUpComponent {
+export class SignUpPupilComponent {
   form: FormGroup;
   loading = false;
 
@@ -69,7 +69,7 @@ export class SignUpComponent {
 
       // отправляем запрос на сервер
       this.loading = true;
-      this.http.post(userData, '/register').subscribe(
+      this.http.post(userData, '/register/pupil').subscribe(
         user => {
           this.loading = false;
 

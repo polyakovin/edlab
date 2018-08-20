@@ -34,8 +34,13 @@ module.exports.datastores = {
   default: {
     adapter: require('sails-mysql'),
     url: `mysql://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_SERVER}:3306/${process.env.DB}`,
-    pool: true,
-    connectionLimit: 4000
+
+    // adapter: require('sails-postgresql'),
+    // url: process.env.DATABASE_URL,
+
+
+    // pool: true,
+    // connectionLimit: 4000
 
     /***************************************************************************
     *                                                                          *

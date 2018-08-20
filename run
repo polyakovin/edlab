@@ -72,7 +72,7 @@ function generate_local_conf {
 }
 
 function redeploy_app {
-  heroku restart --app online-tutoring
+  heroku restart --app edlabs
 }
 
 process_script_request $1

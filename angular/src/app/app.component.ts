@@ -8,7 +8,7 @@ import { CommonService } from './common.service';
 export class AppComponent implements OnInit {
 
   constructor(
-    private common: CommonService
+    public common: CommonService
   ) { }
 
   ngOnInit() {

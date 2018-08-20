@@ -54,7 +54,6 @@ export class TeacherComponent implements OnInit {
         if (!isAnimated) {
           isAnimated = true;
           features.each((i, feature) => {
-            console.log(feature);
             setTimeout(() => {
               $(feature).animate(finalStateFeature, animationDuration);
             }, ((now ? 3 : 0) + i)*animationDuration);
