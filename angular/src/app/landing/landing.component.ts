@@ -30,12 +30,17 @@ export class LandingComponent implements OnInit {
         p.animate(finalState, animationDuration);
       });
 
-      const content = $('.content');
-      $(window).resize(() => {
-        const maxHeight = $(window).height() - 40 - 62;
+      const setContainerSize = () => {
+        const maxHeight = $(window).height();
         if (content.height() < maxHeight) {
-          content.height(maxHeight);
+          content.outerHeight(maxHeight);
         }
+      }
+
+      const content = $('.content');
+      setContainerSize();
+      $(window).resize(() => {
+        setContainerSize();
       });
     });
   }
