@@ -1,9 +1,5 @@
 module.exports = {
   attributes: {
-    // username: {
-    //   type: 'string',
-    //   required: true
-    // },
     firstName: {
       type: 'string',
       required: true
@@ -32,9 +28,5 @@ module.exports = {
       type: 'string',
       required: true
     }
-    // password: {
-    //   type: 'string',
-    //   required: true
-    // }
   }
 };

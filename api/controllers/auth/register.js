@@ -36,7 +36,7 @@ module.exports = {
       outputExample: {email: 'e@mail.ru'}
      },
      emailExists: {
-       description: 'Email exists.',
+       description: 'User with this e-mail exists.',
        statusCode: 400
      }
   },
@@ -46,7 +46,6 @@ module.exports = {
 
     if (!foundUser) {
       const createdUser = await User.create(user).fetch();
-      console.log(createdUser);
 
       const emailToken = CryptoService.generateTokenFromJSON(user);
       user.emailToken = emailToken;
