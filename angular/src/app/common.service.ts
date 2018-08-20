@@ -7,6 +7,7 @@ export class CommonService {
   commonConfirm;
 
   alert(message, cb?) {
+    $('.modal').modal('hide');
     this.commonAlert.find('.message').html(message);
     this.commonAlert.modal('show');
     this.commonAlert.on('hidden.bs.modal', () => {

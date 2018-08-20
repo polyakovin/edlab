@@ -12,8 +12,8 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.common.commonAlert = $('.commonAlert');
-    this.common.commonConfirm = $('.commonConfirm');
+    this.common.commonAlert = $('#commonAlert');
+    this.common.commonConfirm = $('#commonConfirm');
   }
 
 }

@@ -1,3 +1,3 @@
 interface JQuery {
-  rotate(options?: any): any;
+  modal(options?: any): any;
 }

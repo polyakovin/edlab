@@ -73,32 +73,18 @@ export class SignUpComponent {
         user => {
           this.loading = false;
 
-          // выводим сообщение об успехе
-          this.common.alert(`We have sent an e-mail to the "${user.email}". Please check it out!`);
+          this.common.alert(`Спасибо, что приняли учасите в проекте edlabs! На почту "${user.email}" пришло подтверждение.`);
         },
         error => {
           this.loading = false;
 
-          // обработка ошибок
-          const status = error._body;
-          switch (status) {
-            case 'email exists':
-              // если такой пользователь уже есть, то предлагается восстановить пароль
-              this.common.alert('Annotator with this email is already exists in the system. Please sign in or request a new password.');
-              break;
-
-            case 'email exists resend':
-              // если такой пользователь уже есть, то предлагается восстановить пароль
-              this.common.alert('Annotator with this email is already exists in the system, but the email has not been confirmed. We have sent you a new letter for confirmation.');
-              break;
-
-            case 'login exists':
-              // если такой пользователь уже есть, то предлагается восстановить пароль
-              this.common.alert('Annotator with this login is already exists in the system.');
+          switch (error.status) {
+            case 400:
+              this.common.alert('Пользователь с данным e-mail уже участвует в проекте edlabs.');
               break;
 
             default:
-              console.error(status);
+              console.error(error);
               break;
           }
         }

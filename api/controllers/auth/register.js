@@ -1,149 +1,132 @@
-	/**
-	 * AuthController
-	 *
-	 * @description :: Server-side actions for handling incoming requests.
-	 * @help        :: See https://sailsjs.com/docs/concepts/actions
-	 */
-	module.exports = {
-    // регистрация нового аннотатора
-    register: (req, res) => {
-      // запоминаем данные запроса
-      let user = req.allParams();
+module.exports = {
+  description: 'Register a new user.',
 
-      // проверяем корректность введённых данных
-      if (user.email === "") {
-        res.status(400).send('no email');
-      } else {
-        // проверяем, есть ли такой пользователь
-        User.find({
-          or: [
-            {email: user.email},
-            {login: user.login}
-          ]
-        }).limit(1).exec(async (error, foundUser) => {
-          if (error) {
-            sails.log.error(error);
-          } else {
-            // если пользователь новый, то регистрируем
-            if (foundUser.length === 0) {
-              console.log(user);
+  inputs: {
+     firstName: {
+       type: 'string',
+       required: true
+     },
+     familyName: {
+       type: 'string',
+       required: true
+     },
+     patroName: {
+       type: 'string',
+       required: true
+     },
+     email: {
+       type: 'string',
+       required: true
+     },
+     phone: {
+       type: 'string'
+     },
+     school: {
+       type: 'string',
+       required: true
+     },
+     form: {
+       type: 'string',
+       required: true
+     }
+  },
 
-              // шифруем пароль
-              // user.password = CryptoService.encryptPassword(user.password);
+  exits: {
+     success: {
+      outputExample: {email: 'e@mail.ru'}
+     },
+     emailExists: {
+       description: 'Email exists.',
+       statusCode: 400
+     }
+  },
 
-              // регистрируем аннотатора
-              const createdUser = await User.create(user).fetch();
+  fn: async (user, exits) => {
+    const foundUser = await User.findOne({email: user.email});
 
-              console.log(createdUser);
-              // генерируем токен
-              const emailToken = CryptoService.generateTokenFromJSON(user);
-              user.emailToken = emailToken;
+    if (!foundUser) {
+      const createdUser = await User.create(user).fetch();
+      console.log(createdUser);
 
-              // res.json({email: user.email});
+      const emailToken = CryptoService.generateTokenFromJSON(user);
+      user.emailToken = emailToken;
 
-              Tokens.create({
-                id_user: createdUser.id,
-                token: emailToken
-              }).exec((error, token) => {
-                if (error) {
-                  sails.log.error(error);
-                } else {
-                  // отправляем оповещение на почту новому аннотатору
-                  user.hostName = req.headers.host;
-                  // EmailService.signUp(user);
-
-                  // отправляем почту
-                  res.json({email: user.email});
-                }
-              });
-            } else {
-              if (foundUser.email === user.email) {
-                Tokens.find({
-                  id_user: foundUser.id
-                }).exec((error, token) => {
-                  if (error) {
-                    sails.log.error(error);
-                  } else {
-                    // проверяем, было ли подтверждение
-                    if (token) {
-                      // не было — отправляем повторное письмо
-                      user.hostName = req.headers.host;
-                      user.emailToken = token.token;
-                      EmailService.signUp(user);
-
-                      res.status(400).send('email exists resend');
-                    } else {
-                      // было — пусть восстанваливает пароль
-                      res.status(400).send('email exists');
-                    }
-                  }
-                });
-              } else if (foundUser.login === user.login) {
-                res.status(400).send('login exists');
-              }
-            }
-          }
-        });
-      }
-    },
-
-
-    // подтверждение email
-    confirmEmail: (req, res, next) => {
-      let user = req.params.all();
-
-      // проверяем токен при подтверждении регистрации
-      Tokens.findOne({
-        token: user.token
-      }).populateAll().exec((error, token) => {
-        if (error) {
-          sails.log.error(error);
-        } else {
-          if (token) {
-            if (token.id.email === user.email) {
-              // удаляем токен
-              Tokens.query(`DELETE FROM tokens WHERE token = '${token.token}'`, [], (error, result) => {
-                if (error) {
-                  sails.log.error(error);
-                } else {
-                  // регистрируем пользователя
-                  AnnotatorInfo.update(
-                    {
-                      id: token.id.id,
-                    },
-                    {
-                      registered: 1
-                    }
-                  ).exec((error, updated) => {
-                    if (error) {
-                      sails.log.error(error);
-                    }
-                  });
-
-                  // отправляем уведомление на почту
-                  EmailService.sendInfoMailToid(token.id.id, 'registered');
-
-                  // авторизируем пользователя
-                  req.session.userId = token.id.id;
-                  req.session.isAuth = true;
-
-                  // переходим на сайт
-                  res.redirect('/');
-                }
-              });
-            } else {
-              // пользователь уже зарегистрирован. нужно восстановить пароль
-              // res.send({error: "already registered"});
-              res.redirect('/');
-            }
-          } else {
-            // сообщаем о том, что ссылка недействительна (почта не зарегистрирована) и переводим на страницу авторизации
-            // res.send({error: "token invalid"});
-            res.redirect('/');
-          }
-        }
+      await Tokens.create({
+        id_user: createdUser.id,
+        token: emailToken
       });
-    },
+
+      // EmailService.signUp(user);
+
+      return exits.success({email: user.email});
+    } else {
+      throw 'emailExists';
+    }
+  }
+};
+
+    // // подтверждение email
+    // confirmEmail: (req, res, next) => {
+    //   let user = req.params.all();
+
+    //   // проверяем токен при подтверждении регистрации
+    //   Tokens.findOne({
+    //     token: user.token
+    //   }).populateAll().exec((error, token) => {
+    //     if (error) {
+    //       sails.log.error(error);
+    //     } else {
+    //       if (token) {
+    //         if (token.id.email === user.email) {
+    //           // удаляем токен
+    //           Tokens.query(`DELETE FROM tokens WHERE token = '${token.token}'`, [], (error, result) => {
+    //             if (error) {
+    //               sails.log.error(error);
+    //             } else {
+    //               // регистрируем пользователя
+    //               AnnotatorInfo.update(
+    //                 {
+    //                   id: token.id.id,
+    //                 },
+    //                 {
+    //                   registered: 1
+    //                 }
+    //               ).exec((error, updated) => {
+    //                 if (error) {
+    //                   sails.log.error(error);
+    //                 }
+    //               });
+
+    //               // отправляем уведомление на почту
+    //               EmailService.sendInfoMailToid(token.id.id, 'registered');
+
+    //               // авторизируем пользователя
+    //               req.session.userId = token.id.id;
+    //               req.session.isAuth = true;
+
+    //               // переходим на сайт
+    //               res.redirect('/');
+    //             }
+    //           });
+    //         } else {
+    //           // пользователь уже зарегистрирован. нужно восстановить пароль
+    //           // res.send({error: "already registered"});
+    //           res.redirect('/');
+    //         }
+    //       } else {
+    //         // сообщаем о том, что ссылка недействительна (почта не зарегистрирована) и переводим на страницу авторизации
+    //         // res.send({error: "token invalid"});
+    //         res.redirect('/');
+    //       }
+    //     }
+    //   });
+    // },
+
+
+
+
+
+
 
 
     // // вход в систему
@@ -459,10 +442,3 @@
     //     }
     //   });
     // },
-
-    getUsers: (req, res) => {
-      User.find().exec((error, users) => {
-        res.json(users);
-      })
-    }
-	};
