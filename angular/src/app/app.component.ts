@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from './http.service';
 import { CommonService } from './common.service';
 
 @Component({
@@ -8,12 +9,20 @@ import { CommonService } from './common.service';
 export class AppComponent implements OnInit {
 
   constructor(
+    private http: HttpService,
     public common: CommonService
   ) { }
 
   ngOnInit() {
     this.common.commonAlert = $('#commonAlert');
     this.common.commonConfirm = $('#commonConfirm');
-  }
 
+    this.http.get('https://ipapi.co/json/').subscribe(
+      data => {
+        console.log(data);
+
+        this.http.post({ip: data.ip}, 'visits/add-visitor').subscribe()
+      }
+    );
+  }
 }

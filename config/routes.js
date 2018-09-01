@@ -20,7 +20,8 @@ module.exports.routes = {
 	'post /register/pupil': 'auth.register-pupil',
 	'post /register/teacher': 'auth.register-teacher',
   // '/logout': 'AuthController.logout',
-  'get /getUsers': 'user.all'
+  'get /getUsers': 'user.all',
+  'post /visits/add-visitor': 'visits.add-visitor'
 
   //  ╦ ╦╔═╗╔╗ ╔═╗╔═╗╔═╗╔═╗╔═╗
   //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
