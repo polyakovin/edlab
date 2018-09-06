@@ -61,19 +61,23 @@ export class PupilComponent implements OnInit {
       "variants": [
         {
           "title": "Бесплатный урок",
-          "description": "Приходите к нам на бесплатное занятие. 5-9 классы, это самое идеальное время для того, чтобы привить интерес к точным наукам. Это залог успеха в будущем"
+          "description": "Приходите к нам на бесплатное занятие. 5-9 классы, это самое идеальное время для того, чтобы привить интерес к точным наукам. Это залог успеха в будущем",
+          "aos": "right"
         },
         {
           "title": "Занятия в Edlabs",
-          "description": "Наши курсы существенно расширят физико-математический кругозор и помогут развить навыки олимпиадного мышления."
+          "description": "Наши курсы существенно расширят физико-математический кругозор и помогут развить навыки олимпиадного мышления.",
+          "aos": "right"
         },
         {
           "title": "Участие в олимпиадах",
-          "description": "Участие в олимпиадах формирует потенциал для для дальнейшего развития. Edlabs поможет в этом."
+          "description": "Участие в олимпиадах формирует потенциал для для дальнейшего развития. Edlabs поможет в этом.",
+          "aos": "right"
         },
         {
           "title": "ОГЭ",
-          "description": "Ключевым испытанием будет экзамен ОГЭ. Мы поможем эффективно подготовиться к нему."
+          "description": "Ключевым испытанием будет экзамен ОГЭ. Мы поможем эффективно подготовиться к нему.",
+          "aos": "right"
         }
       ]
     },
@@ -82,19 +86,23 @@ export class PupilComponent implements OnInit {
       "variants": [
         {
           "title": "Бесплатный урок",
-          "description": "Приходите к нам на бесплатное занятие. Узнаешь о нас и получишь стратегию поступления в вуз, которая подходит именно тебе."
+          "description": "Приходите к нам на бесплатное занятие. Узнаешь о нас и получишь стратегию поступления в вуз, которая подходит именно тебе.",
+          "aos": "left"
         },
         {
           "title": "Занятия в Edlabs",
-          "description": "Получив стратегию поступления, вы будете знать какая программа подготовки подходит именно вам."
+          "description": "Получив стратегию поступления, вы будете знать какая программа подготовки подходит именно вам.",
+          "aos": "left"
         },
         {
           "title": "Участие в олимпиадах",
-          "description": "Для поступления в ВУЗ важно проявить себя на различных олимпиадах и конкурсах. Наши занятия помогут в этом."
+          "description": "Для поступления в ВУЗ важно проявить себя на различных олимпиадах и конкурсах. Наши занятия помогут в этом.",
+          "aos": "left"
         },
         {
           "title": "ЕГЭ",
-          "description": "Ключевым испытанием будет экзамен ЕГЭ. Мы поможем эффективно подготовиться к нему."
+          "description": "Ключевым испытанием будет экзамен ЕГЭ. Мы поможем эффективно подготовиться к нему.",
+          "aos": "left"
         }
       ]
     }
@@ -122,40 +130,41 @@ export class PupilComponent implements OnInit {
 
   ngOnInit() {
     $(document).ready(() => {
-      const container = $('.main-banner > .container');
-      const h1 = container.find('h1');
-      const p = container.find('p');
-      const btn = container.find('.btn');
-      const finalState = {opacity: 1, right: 0};
-      const finalStateFeature = {opacity: 1, top: 0};
-      const animationDuration = 600;
+      AOS.init({duration: 600, offset: 250});
+      // const container = $('.main-banner > .container');
+      // const h1 = container.find('h1');
+      // const p = container.find('p');
+      // const btn = container.find('.btn');
+      // const finalState = {opacity: 1, right: 0};
+      // const finalStateFeature = {opacity: 1, top: 0};
+      // const animationDuration = 600;
 
-      h1.animate(finalState, animationDuration, () => {
-        p.animate(finalState, animationDuration, () => {
-          btn.animate(finalState, animationDuration);
-        });
-      });
+      // h1.animate(finalState, animationDuration, () => {
+      //   p.animate(finalState, animationDuration, () => {
+      //     btn.animate(finalState, animationDuration);
+      //   });
+      // });
 
-      function animateFeatures(now) {
-        if (!isAnimated) {
-          isAnimated = true;
-          features.each((i, feature) => {
-            setTimeout(() => {
-              $(feature).animate(finalStateFeature, animationDuration);
-            }, ((now ? 3 : 0) + i)*animationDuration);
-          });
-        }
-      }
+      // function animateFeatures(now) {
+      //   if (!isAnimated) {
+      //     isAnimated = true;
+      //     features.each((i, feature) => {
+      //       setTimeout(() => {
+      //         $(feature).animate(finalStateFeature, animationDuration);
+      //       }, ((now ? 3 : 0) + i)*animationDuration);
+      //     });
+      //   }
+      // }
 
-      const features = $('.content > .row > div');
-      let isAnimated = false;
-      if ($('.main-banner').height() < .7*$(window).height()) {
-        animateFeatures(true);
-      } else {
-        $(document).scroll(() => {
-          animateFeatures(false)
-        });
-      }
+      // const features = $('.content > .row > div');
+      // let isAnimated = false;
+      // if ($('.main-banner').height() < .7*$(window).height()) {
+      //   animateFeatures(true);
+      // } else {
+      //   $(document).scroll(() => {
+      //     animateFeatures(false)
+      //   });
+      // }
     });
   }
 
