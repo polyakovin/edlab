@@ -108,6 +108,21 @@ export class PupilComponent implements OnInit {
     }
   ];
 
+  features2 = [
+    {
+      "title": "Выгодно",
+      "description": "Одна из самых низких цен<br>для курсов такого уровня"
+    },
+    {
+      "title": "Оптимально",
+      "description": "Занятия 1 или 2 раза в неделю<br>по 2 ак.часа"
+    },
+    {
+      "title": "Удобно",
+      "description": "Рядом с домом в будни<br>и выходные дни"
+    }
+  ];
+
   socials = [
     {
       "name": "instagram",
@@ -165,10 +180,34 @@ export class PupilComponent implements OnInit {
       //     animateFeatures(false)
       //   });
       // }
+
+      const mapInfographics = $('.map-infographics');
+      const mapInitialWidth = mapInfographics.width();
+      const features = $("#features");
+
+      setMapSize();
+      $(window).resize(() => {
+        setMapSize();
+      });
+
+      function setMapSize() {
+        const standardWidth = features.width();
+        if (standardWidth < mapInitialWidth) {
+          const factor = standardWidth / mapInitialWidth;
+          console.log(factor);
+
+          mapInfographics.css({transform: `scale(${factor})`});
+          mapInfographics.width(standardWidth);
+        }
+      }
     });
   }
 
   goToLanding() {
     this.router.navigate(['/']);
+  }
+
+  showAddress() {
+    $('.additional-info').animate({opacity: 1}, 600);
   }
 }

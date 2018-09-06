@@ -13,13 +13,13 @@
 <div class="main-banner">
   <div class="container">
     <img src="/assets/images/main.png" alt="main" class="float-left hidden-xs">
-    <h1 data-aos="fade-left">EdLabs — курсы<br>по подготовке к ОГЭ и ЕГЭ</h1>
-    <p data-aos="fade-left">EdLabs — это курсы дополнительного образования, которые помогут успешно подготовиться к сдаче ОГЭ или ЕГЭ по Математике и Физике</p>
+    <h1 data-aos="fade-left" data-aos-offset="50">EdLabs — курсы<br>по подготовке к ОГЭ и ЕГЭ</h1>
+    <p data-aos="fade-left" data-aos-offset="50">EdLabs — это курсы дополнительного образования, которые помогут успешно подготовиться к сдаче ОГЭ или ЕГЭ по Математике и Физике</p>
     <div class="visible-xs">
       <img src="/assets/images/main.png" alt="main">
       <br>
     </div>
-    <button data-aos="fade-left" class="btn btn-primary btn-reg" data-toggle="modal" data-target="#regModal">Хочу на курсы EdLabs</button>
+    <button data-aos="fade-left" data-aos-offset="50" class="btn btn-primary btn-reg" data-toggle="modal" data-target="#regModal">Хочу на курсы EdLabs</button>
   </div>
 </div>
 
@@ -38,15 +38,30 @@
 <div id="leaders" class="container-fluid">
   <div class="container">
     <h2>Edlabs — это лидеры образования</h2>
-    <div class="media mt-5" *ngFor="let leader of leaders; let i = index" data-aos="fade-right">
-      <img class="align-self-center mr-5" [src]="'/assets/images/faces-0' + (i + 1) + '.png'" [alt]="leader.name">
-      <div class="media-body">
-        <h3>{{ leader.name }}</h3>
-        <p>{{ leader.status }}</p>
-        <ul>
-          <li *ngFor="let proud of leader.prouds">{{ proud }}</li>
-        </ul>
-        <p *ngIf="leader.afterwords">{{ leader.afterwords }}</p>
+    <div class="hidden-xs">
+      <div class="media mt-5" *ngFor="let leader of leaders; let i = index" data-aos="fade-right">
+        <img class="align-self-center mr-5" [src]="'/assets/images/faces-0' + (i + 1) + '.png'" [alt]="leader.name">
+        <div class="media-body">
+          <h3>{{ leader.name }}</h3>
+          <p>{{ leader.status }}</p>
+          <ul>
+            <li *ngFor="let proud of leader.prouds">{{ proud }}</li>
+          </ul>
+          <p *ngIf="leader.afterwords">{{ leader.afterwords }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="visible-xs">
+      <div class="mt-5" *ngFor="let leader of leaders; let i = index" data-aos="fade-up">
+          <div class="text-center mb-4">
+            <img class="align-self-center mr-5" [src]="'/assets/images/faces-0' + (i + 1) + '.png'" [alt]="leader.name">
+          </div>
+          <h3>{{ leader.name }}</h3>
+          <p>{{ leader.status }}</p>
+          <ul>
+            <li *ngFor="let proud of leader.prouds">{{ proud }}</li>
+          </ul>
+          <p *ngIf="leader.afterwords">{{ leader.afterwords }}</p>
       </div>
     </div>
   </div>
@@ -55,7 +70,7 @@
 <div id="plan" class="container">
   <h2>У Edlabs всегда есть план</h2>
   <div class="row">
-    <div class="col" *ngFor="let plan of plans">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6" *ngFor="let plan of plans">
       <h3>{{ plan.name }}</h3>
       <div class="media mt-4" *ngFor="let variant of plan.variants; let i = index" [attr.data-aos]="'fade-' + variant.aos" data-aos-offset="120">
         <div class="align-self-center mr-3">
@@ -100,22 +115,10 @@
 <div id="features" class="container-fluid">
   <div class="container text-center">
     <div class="row">
-      <div class="col" data-aos="fade-down">
-        <img src="/assets/images/icon-set-01.png" alt="">
-        <h3>Выгодно</h3>
-        <p>Одна из самых низких цен<br>для курсов такого уровня</p>
-      </div>
-
-      <div class="col" data-aos="fade-down">
-        <img src="/assets/images/icon-set-02.png" alt="">
-        <h3>Оптмально</h3>
-        <p>Занятия 1 или 2 раза в неделю<br>по 2 ак.часа</p>
-      </div>
-
-      <div class="col" data-aos="fade-down">
-        <img src="/assets/images/icon-set-03.png" alt="">
-        <h3>Удобно</h3>
-        <p>Рядом с домом в будни<br>и выходные дни</p>
+      <div class="col-4 col-xs-12 col-sm-12" data-aos="fade-down" *ngFor="let feature of features2; let i = index">
+        <img [src]="'/assets/images/icon-set-0' + (i + 1) + '.png'" [alt]="feature.title">
+        <h3>{{ feature.title }}</h3>
+        <p [innerHTML]="feature.description"></p>
       </div>
     </div>
   </div>
@@ -127,15 +130,14 @@
   <div class="map-infographics" data-aos="zoom-out">
     <img src="/assets/images/region-01.png" alt="">
     <span class="MO">Московская область</span>
-    <a class="position" href="https://yandex.ru/maps/-/CBBMmDbOSC">г. Королёв,<br>ул. Строителей, 15</a>
-    <div class="dot"></div>
-    <div class="line"></div>
-  </div>
 
-  <!-- Страница посвящена только карте наших центров.
-  Карта (Москвы и московская область) рисованная.
-  Область, где находится центр подсвечивается синим цветом, при наведении на область, появляется информация о центре: названия точки, адрес и фото.
-  Причём адрес с гиперссылкой на адрес в яндекс-картах. -->
+    <div class="dot" (mouseover)="showAddress()"></div>
+
+    <div class="additional-info">
+      <div class="line"></div>
+      <a class="position" href="https://yandex.ru/maps/-/CBBMmDbOSC" target="_blank">г. Королёв,<br>ул. Строителей, 15</a>
+    </div>
+  </div>
 
   <div class="text-center mt-5 mb-5">
     <button class="btn btn-primary btn-reg" data-toggle="modal" data-target="#regModal">Хочу на курсы EdLabs</button>
