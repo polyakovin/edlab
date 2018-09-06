@@ -194,8 +194,6 @@ export class PupilComponent implements OnInit {
         const standardWidth = features.width();
         if (standardWidth < mapInitialWidth) {
           const factor = standardWidth / mapInitialWidth;
-          console.log(factor);
-
           mapInfographics.css({transform: `scale(${factor})`});
           mapInfographics.width(standardWidth);
         }
