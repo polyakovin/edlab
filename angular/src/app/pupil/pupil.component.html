@@ -1,4 +1,4 @@
-<header class="navbar fixed-top navbar-dark">
+<header class="navbar navbar-dark">
   <div class="container">
     <span class="navbar-brand" (click)="goToLanding()"></span>
     <!-- <span class="navbar-text">
@@ -19,7 +19,7 @@
       <img src="/assets/images/main.png" alt="main">
       <br>
     </div>
-    <button class="btn btn-primary" data-toggle="modal" data-target="#regModal">Хочу на курсы EdLabs</button>
+    <button class="btn btn-primary btn-reg" data-toggle="modal" data-target="#regModal">Хочу на курсы EdLabs</button>
   </div>
 </div>
 
@@ -35,12 +35,112 @@
   </div>
 </div>
 
-<footer class="fixed-bottom">
+<div id="leaders" class="container-fluid">
   <div class="container">
-    &copy; 2018 EdLabs
+    <h2>Edlabs — это лидеры образования</h2>
+    <div class="media mt-5" *ngFor="let leader of leaders; let i = index">
+      <img class="align-self-center mr-5" [src]="'/assets/images/faces-0' + (i + 1) + '.png'" [alt]="leader.name">
+      <div class="media-body">
+        <h3>{{ leader.name }}</h3>
+        <p>{{ leader.status }}</p>
+        <ul>
+          <li *ngFor="let proud of leader.prouds">{{ proud }}</li>
+        </ul>
+        <p *ngIf="leader.afterwords">{{ leader.afterwords }}</p>
+      </div>
+    </div>
   </div>
-</footer>
+</div>
 
+<div id="plan" class="container">
+  <h2>У Edlabs всегда есть план</h2>
+  <div class="row">
+    <div class="col" *ngFor="let plan of plans">
+      <h3>{{ plan.name }}</h3>
+      <div class="media mt-4" *ngFor="let variant of plan.variants; let i = index">
+        <div class="align-self-center mr-3">
+          <div class="round">{{ i + 1 }}</div>
+        </div>
+        <div class="media-body">
+          <h4>{{ variant.title }}</h4>
+          <p>{{ variant.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center mt-5 mb-5">
+    <button class="btn btn-primary btn-reg" data-toggle="modal" data-target="#regModal">Хочу на курсы EdLabs</button>
+  </div>
+</div>
+
+<div id="utp" class="container-fluid">
+  <div class="container">
+    <h2>Edlabs — оптимальное предложение</h2>
+
+    <div class="row">
+      <div class="col text-center">
+        <div class="edlabs-card">
+          <img src="/assets/images/course-01.png" alt="">
+          <h3>Математика</h3>
+          <p>От 410 рублей/ак. час</p>
+        </div>
+      </div>
+
+      <div class="col text-center">
+        <div class="edlabs-card">
+          <img src="/assets/images/course-02.png" alt="">
+          <h3>Физика</h3>
+          <p>От 410 рублей/ак. час</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="features" class="container-fluid">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <img src="/assets/images/icon-set-01.png" alt="">
+        <h3>Выгодно</h3>
+        <p>Одна из самых низких цен<br>для курсов такого уровня</p>
+      </div>
+
+      <div class="col">
+        <img src="/assets/images/icon-set-02.png" alt="">
+        <h3>Оптмально</h3>
+        <p>Занятия 1 или 2 раза в неделю<br>по 2 ак.часа</p>
+      </div>
+
+      <div class="col">
+        <img src="/assets/images/icon-set-03.png" alt="">
+        <h3>Удобно</h3>
+        <p>Рядом с домом в будни<br>и выходные дни</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="navigation" class="container text-center">
+  <h2>Edlabs всегда рядом</h2>
+
+  <div class="map-infographics">
+    <img src="/assets/images/region-01.png" alt="">
+    <span class="MO">Московская область</span>
+    <a class="position" href="https://yandex.ru/maps/-/CBBMmDbOSC">г. Королёв,<br>ул. Строителей, 15</a>
+    <div class="dot"></div>
+    <div class="line"></div>
+  </div>
+
+  <!-- Страница посвящена только карте наших центров.
+  Карта (Москвы и московская область) рисованная.
+  Область, где находится центр подсвечивается синим цветом, при наведении на область, появляется информация о центре: названия точки, адрес и фото.
+  Причём адрес с гиперссылкой на адрес в яндекс-картах. -->
+
+  <div class="text-center mt-5 mb-5">
+    <button class="btn btn-primary btn-reg" data-toggle="modal" data-target="#regModal">Хочу на курсы EdLabs</button>
+  </div>
+</div>
 
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm" role="document">
@@ -110,3 +210,13 @@
     </div>
   </div>
 </div>
+
+
+<footer>
+  <div class="container">
+    &copy; 2018 EdLabs
+    <ul class="socials list-inline">
+      <li class="list-inline-item" *ngFor="let social of socials"><a [href]="social.href" [class]="social.name"></a></li>
+    </ul>
+  </div>
+</footer>
