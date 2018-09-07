@@ -220,7 +220,7 @@ footer {
     background: white;
     display: inline-block;
     padding: 10px;
-    width: 448px;
+    min-width: 448px;
     border-radius: 10px;
     box-shadow: 3px 3px 10px #666;
     font-size: 20pt;
@@ -339,6 +339,28 @@ footer {
 
   h2 {
     font-size: 28pt;
+  }
+
+  #utp {
+
+
+    .edlabs-card {
+      min-width: inherit;
+      width: 100%;
+
+      img {
+        width: 80%;
+      }
+
+      h3 {
+        font-size: 24pt;
+        margin-bottom: -10px;
+      }
+
+      p {
+        font-size: 14pt;
+      }
+    }
   }
 
   #features {

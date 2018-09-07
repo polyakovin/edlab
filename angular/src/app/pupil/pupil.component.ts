@@ -130,7 +130,7 @@ export class PupilComponent implements OnInit {
     },
     {
       "name": "vk",
-      "href": "#"
+      "href": "https://vk.com/edlabs"
     },
     {
       "name": "facebook",
