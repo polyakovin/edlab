@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpService } from '../http.service';
+// import ymaps from 'ymaps';
 
 @Component({
   selector: 'app-pupil',
@@ -145,6 +146,13 @@ export class PupilComponent implements OnInit {
 
   ngOnInit() {
     $(document).ready(() => {
+      // ymaps.load().then(maps => {
+      //   const map = new maps.Map('.map', {
+      //     center: [-8.369326, 115.166023]
+      //   });
+      // })
+      // .catch(error => console.log('Failed to load Yandex Maps', error));
+
       AOS.init({duration: 600, offset: 250});
       // const container = $('.main-banner > .container');
       // const h1 = container.find('h1');
