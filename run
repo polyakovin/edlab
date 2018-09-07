@@ -51,10 +51,10 @@ function build_assets_for_deployment {
 
 function deploy_app {
   build_assets_for_deployment
-  git co production
+  git checkout production
   git merge master
   git push
-  git co master
+  git checkout master
 }
 
 function deploy_test_app {
