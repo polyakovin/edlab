@@ -51,7 +51,7 @@ function build_assets_for_deployment {
 
 function deploy_app {
   build_assets_for_deployment
-  git push -f origin production
+  git push -f origin master:production
 }
 
 function deploy_test_app {
