@@ -51,10 +51,7 @@ function build_assets_for_deployment {
 
 function deploy_app {
   build_assets_for_deployment
-  git checkout production
-  git merge master
-  git push
-  git checkout master
+  git push -f origin production
 }
 
 function deploy_test_app {
