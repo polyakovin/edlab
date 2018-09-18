@@ -136,7 +136,7 @@ export class PupilComponent implements OnInit {
     },
     {
       "name": "facebook",
-      "href": "#"
+      "href": "https://www.facebook.com/groups/1521067934704120/"
     }
   ]
 
