@@ -73,7 +73,7 @@ export class SignUpPupilComponent {
         user => {
           this.loading = false;
 
-          this.common.alert(`Спасибо, что приняли учасите в проекте edlabs! На почту "${user.email}" пришло подтверждение.`);
+          this.common.alert(`Спасибо, что доверяете нам. Мы скоро с вами свяжемся.`);
         },
         error => {
           this.loading = false;
