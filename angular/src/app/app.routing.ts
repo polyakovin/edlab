@@ -5,9 +5,9 @@ import { PupilComponent } from "./pupil/pupil.component";
 import { TeacherComponent } from "./teacher/teacher.component";
 
 const APP_ROUTES: Routes = [
-  { path: '', component: LandingComponent },
-  { path: 'pupil', component: PupilComponent },
-  { path: 'teacher', component: TeacherComponent },
+  { path: '', component: PupilComponent },
+  // { path: 'pupil', component: PupilComponent },
+  // { path: 'teacher', component: TeacherComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
 
