@@ -62,17 +62,17 @@ export class PupilComponent implements OnInit {
       "name": "5-9 классы",
       "variants": [
         {
-          "title": "Бесплатный урок",
+          "title": "Приходи на бесплатный урок",
           "description": "Приходите к нам на бесплатное занятие. 5-9 классы, это самое идеальное время для того, чтобы привить интерес к точным наукам. Это залог успеха в будущем",
           "aos": "right"
         },
         {
-          "title": "Занятия в Edlabs",
+          "title": "Занимайся в Edlabs",
           "description": "Наши курсы существенно расширят физико-математический кругозор и помогут развить навыки олимпиадного мышления.",
           "aos": "right"
         },
         {
-          "title": "Участие в олимпиадах",
+          "title": "Участвуй в олимпиадах",
           "description": "Участие в олимпиадах формирует потенциал для для дальнейшего развития. Edlabs поможет в этом.",
           "aos": "right"
         },
@@ -87,17 +87,17 @@ export class PupilComponent implements OnInit {
       "name": "10-11 классы",
       "variants": [
         {
-          "title": "Бесплатный урок",
+          "title": "Приходи на бесплатный урок",
           "description": "Приходите к нам на бесплатное занятие. Узнаешь о нас и получишь стратегию поступления в вуз, которая подходит именно тебе.",
           "aos": "left"
         },
         {
-          "title": "Занятия в Edlabs",
+          "title": "Занимайся в Edlabs",
           "description": "Получив стратегию поступления, вы будете знать какая программа подготовки подходит именно вам.",
           "aos": "left"
         },
         {
-          "title": "Участие в олимпиадах",
+          "title": "Участвуй в олимпиадах",
           "description": "Для поступления в ВУЗ важно проявить себя на различных олимпиадах и конкурсах. Наши занятия помогут в этом.",
           "aos": "left"
         },
@@ -147,48 +147,7 @@ export class PupilComponent implements OnInit {
 
   ngOnInit() {
     $(document).ready(() => {
-      // ymaps.load().then(maps => {
-      //   const map = new maps.Map('map', {
-      //     center: [-8.369326, 115.166023]
-      //   });
-      // })
-      // .catch(error => console.log('Failed to load Yandex Maps', error));
-
       AOS.init({duration: 600, offset: 250});
-      // const container = $('.main-banner > .container');
-      // const h1 = container.find('h1');
-      // const p = container.find('p');
-      // const btn = container.find('.btn');
-      // const finalState = {opacity: 1, right: 0};
-      // const finalStateFeature = {opacity: 1, top: 0};
-      // const animationDuration = 600;
-
-      // h1.animate(finalState, animationDuration, () => {
-      //   p.animate(finalState, animationDuration, () => {
-      //     btn.animate(finalState, animationDuration);
-      //   });
-      // });
-
-      // function animateFeatures(now) {
-      //   if (!isAnimated) {
-      //     isAnimated = true;
-      //     features.each((i, feature) => {
-      //       setTimeout(() => {
-      //         $(feature).animate(finalStateFeature, animationDuration);
-      //       }, ((now ? 3 : 0) + i)*animationDuration);
-      //     });
-      //   }
-      // }
-
-      // const features = $('.content > .row > div');
-      // let isAnimated = false;
-      // if ($('.main-banner').height() < .7*$(window).height()) {
-      //   animateFeatures(true);
-      // } else {
-      //   $(document).scroll(() => {
-      //     animateFeatures(false)
-      //   });
-      // }
 
       const mapInfographics = $('.map-infographics');
       const mapInitialWidth = mapInfographics.width();
@@ -207,7 +166,27 @@ export class PupilComponent implements OnInit {
           mapInfographics.width(standardWidth);
         }
       }
+
+      this.watchMediasHeights();
     });
+  }
+
+  watchMediasHeights() {
+    this.equilifyMediasHeights();
+    $(document).resize(() => {
+      this.equilifyMediasHeights();
+    });
+  }
+
+  equilifyMediasHeights() {
+    let maxHeight = 0;
+    const medias = $('#plan .media');
+    medias.each((i, media) => {
+      if ($(media).height() > maxHeight) {
+        maxHeight = $(media).height();
+      }
+    })
+    medias.height(maxHeight);
   }
 
   goToLanding() {

@@ -16,11 +16,12 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.common.commonAlert = $('#commonAlert');
     this.common.commonConfirm = $('#commonConfirm');
+    this.countVisitors();
+  }
 
+  countVisitors() {
     this.http.get('https://ipapi.co/json/').subscribe(
       data => {
-        console.log(data);
-
         this.http.post({ip: data.ip}, 'visits/add-visitor').subscribe()
       }
     );
