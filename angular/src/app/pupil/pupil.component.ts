@@ -77,7 +77,7 @@ export class PupilComponent implements OnInit {
           "aos": "right"
         },
         {
-          "title": "ОГЭ",
+          "title": "Сдавай ОГЭ",
           "description": "Ключевым испытанием будет экзамен ОГЭ. Мы поможем эффективно подготовиться к нему.",
           "aos": "right"
         }
@@ -102,7 +102,7 @@ export class PupilComponent implements OnInit {
           "aos": "left"
         },
         {
-          "title": "ЕГЭ",
+          "title": "Сдавай ЕГЭ",
           "description": "Ключевым испытанием будет экзамен ЕГЭ. Мы поможем эффективно подготовиться к нему.",
           "aos": "left"
         }
@@ -113,11 +113,11 @@ export class PupilComponent implements OnInit {
   features2 = [
     {
       "title": "Выгодно",
-      "description": "Одна из самых низких цен<br>для курсов такого уровня"
+      "description": "Одна из самых низких цен<br>для курсов"
     },
     {
       "title": "Оптимально",
-      "description": "Занятия 1 или 2 раза в неделю<br>по 2 ак.часа"
+      "description": "Занятия 1–2 раза в неделю<br>по 2 ак.часа"
     },
     {
       "title": "Удобно",
@@ -126,10 +126,10 @@ export class PupilComponent implements OnInit {
   ];
 
   socials = [
-    {
-      "name": "instagram",
-      "href": "#"
-    },
+    // {
+    //   "name": "instagram",
+    //   "href": "#"
+    // },
     {
       "name": "vk",
       "href": "https://vk.com/edlabs"
@@ -168,6 +168,10 @@ export class PupilComponent implements OnInit {
       }
 
       this.watchMediasHeights();
+
+      // setTimeout(() => {
+      //   console.log($('#navigation').find('.ymaps-2-1-65-svg-icon').width());
+      // }, 3000);
     });
   }
 
@@ -195,5 +199,10 @@ export class PupilComponent implements OnInit {
 
   showAddress() {
     $('.additional-info').animate({opacity: 1}, 600);
+  }
+
+  scrollTo(id) {
+    const top = document.getElementById(id).offsetTop;
+    window.scrollTo({ top: top, behavior: 'smooth' });
   }
 }
