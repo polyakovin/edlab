@@ -42,6 +42,11 @@ $violet: #700f78;
   }
 }
 
+.discount {
+  background: lighten($edlabs-orange, 15);
+  padding: 15px;
+}
+
 .main-banner {
   background: #8f59ea url('../../assets/images/main-back.jpg');
   background-position: center;
@@ -141,6 +146,14 @@ footer {
   padding: 30px;
   color: white;
   font-size: 14pt;
+
+  .face {
+    width: 200px;
+    border-radius: 50%;
+    border: 7px solid $edlabs-orange;
+    background-color: #fff;
+    padding: 5px;
+  }
 
   h2 {
     padding: 40px 0 20px 0;

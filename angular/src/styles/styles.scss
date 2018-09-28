@@ -66,3 +66,8 @@ label {
 .navbar.fixed-top {
   box-shadow: 0 0 6px hsl(0, 0%, 35%);
 }
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
