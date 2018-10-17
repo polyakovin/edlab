@@ -28,27 +28,27 @@ export class SignUpPupilComponent {
         Validators.required,
         Validators.pattern('.{2,20}')
       ]],
-      'familyName': ['', [
-        Validators.required,
-        Validators.pattern('.{2,20}')
-      ]],
-      'patroName': ['', [
-        Validators.required,
-        Validators.pattern('.{2,20}')
-      ]],
-      'email': ['', [
-        Validators.required,
-        Validators.pattern('[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})')
-      ]],
+      // 'familyName': ['', [
+      //   Validators.required,
+      //   Validators.pattern('.{2,20}')
+      // ]],
+      // 'patroName': ['', [
+      //   Validators.required,
+      //   Validators.pattern('.{2,20}')
+      // ]],
+      // 'email': ['', [
+      //   Validators.required,
+      //   Validators.pattern('[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})')
+      // ]],
       'phone': ['', [
         // Validators.pattern('[0-9]{10}')
       ]],
-      'school': ['', [
-        Validators.required
-      ]],
-      'form': ['', [
-        Validators.required
-      ]]
+      // 'school': ['', [
+      //   Validators.required
+      // ]],
+      // 'form': ['', [
+      //   Validators.required
+      // ]]
     });
   }
 
@@ -59,12 +59,12 @@ export class SignUpPupilComponent {
       // собираем информацию с полей
       const userData = {
         firstName: this.form.value.firstName,
-        familyName: this.form.value.familyName,
-        patroName: this.form.value.patroName,
-        email: this.form.value.email.toLowerCase(),
+        // familyName: this.form.value.familyName,
+        // patroName: this.form.value.patroName,
+        // email: this.form.value.email.toLowerCase(),
         phone: this.form.value.phone,
-        school: this.form.value.school,
-        form: this.form.value.form
+        // school: this.form.value.school,
+        // form: this.form.value.form
       };
 
       // отправляем запрос на сервер
@@ -74,6 +74,7 @@ export class SignUpPupilComponent {
           this.loading = false;
 
           this.common.alert(`Спасибо, что доверяете нам. Мы скоро с вами свяжемся.`);
+          (<any>window).yaCounter50165869.reachGoal('ZAYAVKA');
         },
         error => {
           this.loading = false;

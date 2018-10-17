@@ -1,11 +1,11 @@
 <form [formGroup]="form" (ngSubmit)="signUp($event)">
-  <div class="form-group">
+  <!-- <div class="form-group">
     <label>Фамилия</label>
     <input type="text" class="form-control" formControlName="familyName">
     <span class="small text-danger input-tip">
       Введите свою фамилию. От 2 до 20 символов.
     </span>
-  </div>
+  </div> -->
 
   <div class="form-group">
     <label>Имя</label>
@@ -15,7 +15,7 @@
     </span>
   </div>
 
-  <div class="form-group">
+  <!-- <div class="form-group">
     <label>Отчество</label>
     <input type="text" class="form-control" formControlName="patroName">
     <span class="small text-danger input-tip">
@@ -29,7 +29,7 @@
     <span class="small text-danger input-tip">
       E-mail введён некорректно.
     </span>
-  </div>
+  </div> -->
 
   <div class="form-group">
     <label>Моб. телефон</label>
@@ -39,7 +39,7 @@
     </span>
   </div>
 
-  <div class="form-group">
+  <!-- <div class="form-group">
     <label>Школа</label>
     <input type="text" class="form-control" formControlName="school">
     <span class="small text-danger input-tip">
@@ -53,7 +53,7 @@
     <span class="small text-danger input-tip">
       Укажите свой класс.
     </span>
-  </div>
+  </div> -->
 
   <button type="submit" class="btn btn-success btn-block" [ngClass]="{disabled: loading || !form.valid}
   ">
