@@ -73,7 +73,7 @@ export class SignUpPupilComponent {
         user => {
           this.loading = false;
 
-          this.common.alert(`Спасибо, что доверяете нам. Мы скоро с вами свяжемся.`);
+          // this.common.alert(`Спасибо, что доверяете нам. Мы скоро с вами свяжемся.`);
           (<any>window).yaCounter50165869.reachGoal('ZAYAVKA');
         },
         error => {
