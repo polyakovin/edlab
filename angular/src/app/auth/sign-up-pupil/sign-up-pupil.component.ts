@@ -55,6 +55,8 @@ export class SignUpPupilComponent {
   signUp(event) {
     event.preventDefault(); // отменяем стандартное действие
 
+    const regModal = $('#regModal');
+
     if (!this.loading && this.form.valid) {
       // собираем информацию с полей
       const userData = {
@@ -75,6 +77,7 @@ export class SignUpPupilComponent {
 
           // this.common.alert(`Спасибо, что доверяете нам. Мы скоро с вами свяжемся.`);
           (<any>window).yaCounter50165869.reachGoal('ZAYAVKA');
+          regModal.modal('hide');
         },
         error => {
           this.loading = false;
